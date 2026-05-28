@@ -1,0 +1,154 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0a1628;
+  --navy-mid:  #122040;
+  --navy-soft: #1e3a5f;
+  --teal:      #0ea5c9;
+  --teal-lt:   #38bdf8;
+  --mint:      #10b981;
+  --amber:     #f59e0b;
+  --rose:      #f43f5e;
+  --white:     #f8fafc;
+  --gray-100:  #e2e8f0;
+  --gray-400:  #94a3b8;
+  --gray-600:  #475569;
+  --radius:    12px;
+  --shadow:    0 4px 24px rgba(0,0,0,0.3);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+a { color: var(--teal); text-decoration: none; }
+
+button {
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  outline: none;
+  transition: all 0.2s;
+}
+
+input, select, textarea {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy-mid);
+  border: 1.5px solid var(--navy-soft);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+input::placeholder { color: var(--gray-400); }
+select option { background: var(--navy-mid); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal), #0077aa);
+  color: white;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--teal);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1.5px solid var(--teal);
+}
+.btn-secondary:hover { background: rgba(14,165,201,0.1); }
+
+.btn-danger {
+  background: rgba(244,63,94,0.15);
+  color: var(--rose);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--rose);
+}
+.btn-danger:hover { background: rgba(244,63,94,0.25); }
+
+.card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.badge-green  { background: rgba(16,185,129,0.15); color: var(--mint); }
+.badge-red    { background: rgba(244,63,94,0.15); color: var(--rose); }
+.badge-blue   { background: rgba(14,165,201,0.15); color: var(--teal); }
+.badge-amber  { background: rgba(245,158,11,0.15); color: var(--amber); }
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+.alert-error   { background: rgba(244,63,94,0.15); border: 1px solid var(--rose); color: var(--rose); }
+.alert-success { background: rgba(16,185,129,0.15); border: 1px solid var(--mint); color: var(--mint); }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.85rem; color: var(--gray-400); margin-bottom: 6px; font-weight: 500; }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+.tab {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+.tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+.tab:hover:not(.active) { color: var(--white); }
+
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(14,165,201,0.2);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--gray-400);
+}
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
